@@ -1,6 +1,6 @@
 import { Link, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
-import boundlessLogo from "../assets/images/Boundless.png";
+import boundlessLogo from "../assets/Images/Boundless.png";
 import { useState } from "react";
 
 function Navbar({ isHome }) {

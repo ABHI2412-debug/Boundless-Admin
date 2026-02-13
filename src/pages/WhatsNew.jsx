@@ -1,5 +1,5 @@
-import whatsNewImg1 from "../assets/images/WhatsNew1.png";
-import whatsNewImg2 from "../assets/images/WhatsNew2.png";
+import whatsNewImg1 from "../assets/Images/WhatsNew1.png";
+import whatsNewImg2 from "../assets/Images/WhatsNew2.png";
 
 
 function WhatsNew() {
