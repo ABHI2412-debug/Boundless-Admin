@@ -1,98 +1,95 @@
-import { Link } from "react-router-dom";
-import { useState, useRef, useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
 import { ChevronDown } from "lucide-react";
+import boundlessLogo from "../assets/images/Boundless.png";
+import { useState } from "react";
 
-function Navbar() {
+function Navbar({ isHome }) {
+  const location = useLocation();
   const [open, setOpen] = useState(false);
-  const dropdownRef = useRef(null);
 
-  // Close dropdown when clicking outside
-  useEffect(() => {
-    function handleClickOutside(event) {
-      if (
-        dropdownRef.current &&
-        !dropdownRef.current.contains(event.target)
-      ) {
-        setOpen(false);
-      }
-    }
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () =>
-      document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  // Topics with routes
   const topics = [
-    { name: "Vox Books", path: "/vox-books" },
-    { name: "Batch Entry", path: "/batch-entry" },
-    { name: "Quotes", path: "/quotes" },
-    { name: "Title Details", path: "/title-details" },
-    { name: "What's New", path: "/whats-new" },
-    { name: "Programs", path: "/programs" },
-    { name: "Admin", path: "/admin" },
-    { name: "Discounts", path: "/discounts" },
-    { name: "Browse", path: "/browse" },
-    { name: "Customer Service Dashboard", path: "/customer-service" },
-    { name: "Reports", path: "/reports" },
+    "Reports",
+    "Customization",
+    "Settings",
+    "Patron Management",
+    "Pop Up Library",
+    "Admin User Management",
+    "Messaging",
+    "Epopup Library",
+    "Boundless",
   ];
 
   return (
-    <div className="absolute top-0 left-0 w-full z-50">
-      <div className="flex justify-between items-center px-10 py-6 text-white">
+    <nav
+  className={`flex justify-between items-center pl-6 pr-8 py-4 relative transition-all duration-300 ${
+    isHome
+      ? "absolute top-0 left-0 w-full text-white"
+      : "bg-white text-gray-800 shadow-sm"
+  }`}
+>
 
-        {/* Logo */}
-        <Link to="/" className="text-2xl font-light tracking-wide">
-          titlesource360
+      
+      {/* Logo */}
+      <Link to="/">
+        <img
+          src={boundlessLogo}
+          alt="Boundless Logo"
+          className="h-16 w-auto"
+        />
+      </Link>
+
+      {/* Menu */}
+      <div className="flex items-center gap-12 text-sm font-light">
+
+        {/* Home */}
+        <Link
+          to="/"
+          className={`relative pb-1 ${
+            location.pathname === "/" ? "border-b-2 border-green-500" : ""
+          }`}
+        >
+          Home
         </Link>
 
-        {/* Right Side */}
+        {/* Topics Dropdown */}
         <div
-          className="relative flex items-center space-x-8"
-          ref={dropdownRef}
+          className="relative"
+          onMouseEnter={() => setOpen(true)}
+          onMouseLeave={() => setOpen(false)}
         >
-
-          {/* Home */}
-          <Link
-            to="/"
-            className="text-lg hover:text-gray-300 transition"
-          >
-            Home
-          </Link>
-
-          {/* Topics Button */}
-          <button
-            type="button"
-            onClick={(e) => {
-              e.stopPropagation(); // prevent unwanted bubbling
-              setOpen((prev) => !prev);
-            }}
-            className="flex items-center space-x-1 text-lg hover:text-gray-300 transition"
-          >
-            <span>Topics</span>
-            <ChevronDown size={18} />
+          <button className="flex items-center gap-1 hover:opacity-80 transition">
+            Topics <ChevronDown size={16} />
           </button>
 
-          {/* Dropdown */}
           {open && (
-            <div className="absolute right-0 top-12 w-72 bg-white text-gray-800 shadow-xl border border-gray-300 rounded-sm overflow-hidden z-50">
-
-{topics.map((item, index) => (
-  <Link
-    key={index}
-    to={item.path}
-    onClick={() => setOpen(false)}
-    className="block px-6 py-4 hover:bg-gray-100 transition"
-  >
-    {item.name}
-  </Link>
-))}
-
+            <div className="absolute left-0 pt-2 w-72 z-50">
+              <div className="bg-white rounded-lg shadow-2xl overflow-hidden text-gray-700">
+                {topics.map((item, index) => (
+                  <Link
+                    key={index}
+                    to={`/${item.toLowerCase().replace(/\s+/g, "-")}`}
+                    className="block px-6 py-4 hover:bg-gray-100 border-b last:border-none transition"
+                  >
+                    {item}
+                  </Link>
+                ))}
+              </div>
             </div>
           )}
         </div>
+
+        {/* What's New */}
+        <Link to="/whats-new" className="hover:opacity-80">
+          What's New
+        </Link>
+
+        {/* Contact */}
+        <Link to="/contact" className="hover:opacity-80">
+          Contact Support
+        </Link>
+
       </div>
-    </div>
+    </nav>
   );
 }
 

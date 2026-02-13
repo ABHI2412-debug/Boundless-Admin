@@ -10,23 +10,19 @@ import {
 import HelpCard from "./HelpCard";
 import { Link } from "react-router-dom";
 
-function HelpGrid({ searchTerm }) {
- const cards = [
-  { title: "Getting Started", icon: <FaPowerOff size={52} />, path: "/getting-started" },
+function HelpGrid({ searchTerm = "" }) {
 
-  { title: "Settings & Preferences", icon: <FaCog size={52} />, path: "/settings" },
+  console.log("HelpGrid mounted");
 
-  { title: "Carts & Ordering", icon: <FaShoppingCart size={52} />, path: "/carts" },
+  const cards = [
+    { title: "Getting Started", icon: <FaPowerOff size={52} />, path: "/getting-started" },
+    { title: "Settings & Preferences", icon: <FaCog size={52} />, path: "/settings" },
+    { title: "Carts & Ordering", icon: <FaShoppingCart size={52} />, path: "/carts" },
+    { title: "Search & Browse", icon: <FaBook size={52} />, path: "/search" },
+    { title: "Frequently Asked Questions", icon: <FaQuestionCircle size={52} />, path: "/faq" },
+    { title: "Troubleshooting", icon: <FaWrench size={52} />, path: "/troubleshooting" },
+  ];
 
-  { title: "Search & Browse", icon: <FaBook size={52} />, path: "/search" },
-
-  { title: "Frequently Asked Questions", icon: <FaQuestionCircle size={52} />, path: "/faq" },
-
-  { title: "Troubleshooting", icon: <FaWrench size={52} />, path: "/troubleshooting" },
-];
-
-
-  // 🔎 Filter cards based on search term
   const filteredCards = cards.filter((card) =>
     card.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
@@ -41,8 +37,8 @@ function HelpGrid({ searchTerm }) {
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-12">
-            {filteredCards.map((card, index) => (
-              <Link to={card.path} key={index}>
+            {filteredCards.map((card) => (
+              <Link to={card.path} key={card.title}>
                 <HelpCard icon={card.icon} title={card.title} />
               </Link>
             ))}
@@ -55,4 +51,3 @@ function HelpGrid({ searchTerm }) {
 }
 
 export default HelpGrid;
-

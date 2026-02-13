@@ -40,13 +40,7 @@ function Programs() {
 
         </div>
 
-        <div className="mt-16 text-center text-gray-700">
-          Still need assistance?{" "}
-          <span className="text-blue-600 font-medium cursor-pointer">
-            Submit a Support Case Click Here
-          </span>{" "}
-          or call 1-800-775-3700 option 2
-        </div>
+
 
       </div>
     </div>

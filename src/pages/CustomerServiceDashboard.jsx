@@ -81,13 +81,7 @@ const CustomerServiceDashboard = () => {
           </div>
         ))}
 
-        <div className="text-center mt-16 text-gray-600">
-          Still need assistance? Submit a Support Case{" "}
-          <span className="text-blue-600 hover:underline cursor-pointer">
-            Click Here
-          </span>{" "}
-          or call 1-800-775-3700 option 2
-        </div>
+
       </div>
     </div>
   );

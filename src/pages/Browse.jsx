@@ -80,14 +80,7 @@ function Browse() {
           </div>
         ))}
 
-        {/* Support Section */}
-        <div className="text-center mt-16 text-gray-600">
-          Still need assistance? Submit a Support Case{" "}
-          <a href="#" className="text-blue-600 hover:underline">
-            Click Here
-          </a>{" "}
-          or call 1-800-775-3700 option 2
-        </div>
+
       </div>
     </div>
   );

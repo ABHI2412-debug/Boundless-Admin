@@ -1,63 +1,31 @@
-import { useNavigate } from "react-router-dom";
-import { Search } from "lucide-react";
+<section
+  className="relative h-[520px] bg-cover bg-center"
+  style={{
+    backgroundImage:
+      "url('https://images.unsplash.com/photo-1521737604893-d14cc237f11d')",
+  }}
+>
+  <div className="absolute inset-0 bg-black/40"></div>
 
-function Hero({ searchTerm, setSearchTerm }) {
-  const navigate = useNavigate();
+  <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center">
 
-  const handleSearch = () => {
-    if (searchTerm.trim() !== "") {
-      navigate(`/search?q=${encodeURIComponent(searchTerm)}`);
-    }
-  };
+    <h1 className="text-6xl font-light mb-6">
+      How can we help you?
+    </h1>
 
-  return (
-    <div className="relative h-[520px] w-full">
+    <div className="bg-white rounded-full flex shadow-lg overflow-hidden w-[700px]">
 
-      {/* Background */}
-      <img
-        src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-        alt="background"
-        className="absolute w-full h-full object-cover"
+      <input
+        type="text"
+        placeholder="Ask a question..."
+        className="flex-1 px-6 py-2.5 text-gray-700 outline-none"
       />
 
-      {/* Dark Overlay */}
-      <div className="absolute w-full h-full bg-black/60"></div>
+      <button className="bg-green-600 px-8 text-white">
+        🔍
+      </button>
 
-      {/* Content */}
-      <div className="relative z-10 flex flex-col items-center justify-center h-full text-white px-4">
-
-        <h1 className="text-5xl md:text-6xl font-semibold mb-10 text-center">
-          What can we help you with?
-        </h1>
-
-        {/* Search Bar */}
-        <div className="flex w-full max-w-2xl shadow-lg">
-
-          <input
-            type="text"
-            placeholder="Ask a question..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            onKeyDown={(e) => {
-              if (e.key === "Enter") {
-                handleSearch();
-              }
-            }}
-            className="flex-1 px-6 py-4 rounded-l-full text-black text-lg outline-none"
-          />
-
-          <button
-            onClick={handleSearch}
-            className="bg-blue-700 hover:bg-blue-800 transition px-6 rounded-r-full flex items-center justify-center"
-          >
-            <Search size={22} />
-          </button>
-
-        </div>
-
-      </div>
     </div>
-  );
-}
 
-export default Hero;
+  </div>
+</section>

@@ -1,53 +1,122 @@
-import whatsNewArticles from "../data/whatsNewData";
+import whatsNewImg1 from "../assets/images/WhatsNew1.png";
+import whatsNewImg2 from "../assets/images/WhatsNew2.png";
+
 
 function WhatsNew() {
   return (
-    <div className="bg-gray-50 min-h-screen py-16 px-8">
-      <div className="max-w-6xl mx-auto">
+    <div className="bg-gray-100 py-16 px-6">
+      <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-16">
 
-        {/* Page Title */}
-        <div className="text-center mb-12">
-          <h1 className="text-3xl font-semibold">What's New</h1>
-        </div>
+        {/* ================= LEFT CONTENT ================= */}
+        <div className="lg:col-span-2">
 
-        <div className="flex justify-between items-start">
+          <h1 className="text-4xl font-semibold text-center mb-12">
+            WHAT'S NEW IN ADMIN
+          </h1>
 
-          {/* Left Side Articles */}
-          <div className="w-3/4 space-y-8">
-
-            {whatsNewArticles.map((article) => (
-              <div key={article.id} className="border-b pb-6">
-                <h2 className="text-xl font-semibold mb-2">
-                  {article.title}
-                </h2>
-
-                <div className="text-sm text-gray-500">
-                  {article.views} • {article.date} • Knowledge
-                </div>
-              </div>
-            ))}
-
+          <div className="text-gray-500 text-sm mb-6">
+            May 15, 2025 &nbsp; Knowledge
           </div>
 
-          {/* Right Side Count */}
-          <div className="w-1/4 text-right">
-            <div className="text-2xl font-semibold">
-              {whatsNewArticles.length}
-            </div>
-            <div className="text-gray-500 text-sm">
-              Article
-            </div>
+          <h2 className="text-xl font-semibold mb-4">Description</h2>
+
+          <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            Boundless Theme and Branding Colors
+          </h3>
+
+          <p className="text-gray-700 mb-8 leading-relaxed">
+            We have updated our Boundless Library Admin site to reflect the
+            Boundless theme and brand colors. You will now see different shades
+            of blue rather than the previous green colors.
+          </p>
+
+           <img
+          src={whatsNewImg1}
+           alt="Admin Home"
+           className="rounded shadow mb-12 w-full"
+/>
+
+
+          <h3 className="text-2xl font-semibold text-blue-800 mb-4">
+            Library Settings Configuration Page
+          </h3>
+
+          <p className="text-gray-700 mb-8 leading-relaxed">
+            The Library Settings page has been updated to a new layout and
+            setup progression. You will now see a menu on the left side of the
+            screen containing each section applicable to your library. Please
+            note that some sections remain read-only view while others can be edited.
+          </p>
+
+           <img
+           src={whatsNewImg2}
+           alt="Library Settings"
+           className="rounded shadow mb-10 w-full"
+/>
+
+
+          <p className="text-gray-700 mb-8">
+            To learn more about the new Library Settings page, see the{" "}
+            <span className="text-blue-600 underline cursor-pointer">
+              Library Settings - Content, Lending and More
+            </span>{" "}
+            article.
+          </p>
+
+          <hr className="my-8" />
+
+          <div className="mb-6">
+            <div className="font-semibold">Title</div>
+            <div className="text-gray-600">What's New in Admin</div>
+          </div>
+
+          <div className="mb-8">
+            <div className="font-semibold">URL Name</div>
+            <div className="text-gray-600">Whats-New-in-Admin</div>
+          </div>
+
+          <div className="flex gap-4">
+            <span className="px-4 py-2 border rounded-full text-sm text-blue-600 border-blue-600">
+              Admin User Management
+            </span>
+            <span className="px-4 py-2 border rounded-full text-sm text-blue-600 border-blue-600">
+              Boundless
+            </span>
           </div>
 
         </div>
 
-        {/* Support Section */}
-        <div className="mt-16 text-center text-gray-700">
-          Still need assistance?{" "}
-          <span className="text-blue-600 font-medium cursor-pointer">
-            Submit a Support Case Click Here
-          </span>{" "}
-          or call 1-800-775-3700 option 2
+        {/* ================= RIGHT SIDEBAR ================= */}
+        <div className="bg-white p-8 rounded shadow h-fit">
+
+          <h3 className="text-lg font-semibold mb-6">
+            Related Articles
+          </h3>
+
+          <ul className="space-y-5 text-gray-700 text-sm">
+            <li className="hover:text-blue-600 cursor-pointer">
+              Admin User Management
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+              New Users By Month Report
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+              Customize Your Library Page Through Library Admin Management
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+              ePopUp Library - Admin FAQs
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+              New Users By Month Graph Report
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+              Boundless Guide and FAQs
+            </li>
+            <li className="hover:text-blue-600 cursor-pointer">
+              New Users By Month - Interactive Dashboard Reports
+            </li>
+          </ul>
+
         </div>
 
       </div>

@@ -6,25 +6,19 @@ function Layout() {
   const isHome = location.pathname === "/";
 
   return (
-    <>
-      {/* Small banner only for inner pages */}
-      {!isHome && (
-        <div className="relative h-40 w-full">
-          <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
-            alt="banner"
-            className="absolute w-full h-full object-cover"
-          />
-          <div className="absolute w-full h-full bg-black/50"></div>
-          <Navbar />
-        </div>
-      )}
+    <div className="min-h-screen flex flex-col bg-white">
 
-      {/* Home page Navbar (no small banner) */}
-      {isHome && <Navbar />}
+      {/* Navbar */}
+      <div className={`w-full z-50 ${isHome ? "absolute top-0 left-0" : "bg-white shadow fixed top-0 left-0"}`}>
+        <Navbar isHome={isHome} />
+      </div>
 
-      <Outlet />
-    </>
+      {/* Page Content */}
+      <main className={`${isHome ? "" : "pt-24"} flex-grow`}>
+        <Outlet />
+      </main>
+
+    </div>
   );
 }
 

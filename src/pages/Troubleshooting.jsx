@@ -98,16 +98,7 @@ function Troubleshooting() {
         ))}
       </div>
 
-      {/* Support Section */}
-      <div className="bg-white py-10 border-t text-center">
-        <p className="text-gray-700">
-          Still need assistance?{" "}
-          <span className="font-semibold text-blue-600 cursor-pointer hover:underline">
-            Click Here
-          </span>{" "}
-          or call 1-800-775-3700 option 2
-        </p>
-      </div>
+ 
 
     </div>
   );
