@@ -1,9 +1,9 @@
 import { Link } from "react-router-dom";
-import reportsImg from "../assets/Images/Reports.jpg";
-import settingsImg from "../assets/Images/Settings.png";
-import patronsImg from "../assets/Images/Patrons.png";
-import adminUsersImg from "../assets/Images/Admin.jpg";
-import CustomizationImg from "../assets/Images/Customization.jpg";
+import reportsImg from "../Assets/Images/Reports.jpg";
+import settingsImg from "../Assets/Images/Settings.png";
+import patronsImg from "../Assets/Images/Patrons.png";
+import adminUsersImg from "../Assets/Images/Admin.jpg";
+import CustomizationImg from "../Assets/Images/Customization.jpg";
 
 function Home() {
   return (
